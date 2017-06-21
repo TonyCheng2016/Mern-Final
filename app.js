@@ -1,10 +1,12 @@
 var path = require('path');
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
+var routers = require('./routers');
 var PORT = process.env.PORT || 8080
 
 // using webpack-dev-server and middleware in development environment
-if(process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== 'production') {
   var webpackDevMiddleware = require('webpack-dev-middleware');
   var webpackHotMiddleware = require('webpack-hot-middleware');
   var webpack = require('webpack');
@@ -15,13 +17,20 @@ if(process.env.NODE_ENV !== 'production') {
   app.use(webpackHotMiddleware(compiler));
 }
 
+// ======initialization
+// static file setup
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
+app.use('/', routers);
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(PORT, function(error) {
+
+
+app.listen(PORT, function (error) {
   if (error) {
     console.error(error);
   } else {

@@ -6,11 +6,14 @@ import { Link } from 'react-router';
 
 import BookList from '../containers/book-list';
 import BookDetail from '../containers/book-detail';
+import Global from './global';
 class PostsIndex extends Component {
   componentWillMount() {
     this.props.fetchPosts();
   }
+  onDeleteClick() {
 
+  }
   renderPosts() {
     return this.props.posts.map((post) => {
       return (
@@ -31,18 +34,28 @@ class PostsIndex extends Component {
   render() {
     return (
       <div>
-
-        <div className="text-xs-right">
-          <Link to="/posts/new" className="btn btn-primary">
-            Add a Post
+        
+        <div className="text-xs-right row" >
+          
+          <h4 id="headtext">Add to your book list</h4>
+          <Link to="/posts/new" className="btn btn-info btn-lg">
+            
+            <span className="glyphicon glyphicon-plus"></span> Plus
           </Link>
         </div>
-        <h3>Posts</h3>
         <div className="row">
           <BookList />
           <BookDetail />
+          <Global />
+
+
         </div>
-        <ul className="list-group">
+        <button
+          className="btn btn-danger pull-xs-right"
+          onClick={this.onDeleteClick.bind(this)}>
+          Delete Book
+        </button>
+        <ul className="list-group col-sm-4 nav nav-pills nav-stacked">
           {this.renderPosts()}
         </ul>
       </div>

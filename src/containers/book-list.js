@@ -7,12 +7,12 @@ class BookList extends Component {
   renderList() {
     return this.props.books.map((book) => {
       return (
-        <li 
+        <li
           key={book.title}
           onClick={() => this.props.selectBook(book)}
           className="list-group-item ">
           <div className="list-group-item active text-center">
-          {book.title}
+            {book.title}
           </div>
         </li>
       );
@@ -21,7 +21,7 @@ class BookList extends Component {
 
   render() {
     return (
-      <ul className="list-group col-sm-4 nav nav-pills nav-stacked">
+      <ul className="list-group col-sm-3 nav nav-pills nav-stacked">
         {this.renderList()}
       </ul>
     )

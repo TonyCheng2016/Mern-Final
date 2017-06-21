@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
+
 import Gallary from './gallary.js';
 import searchAction from '../actions/searchAction';
 import CircularProgressBar from './progress.js';
 
-
+import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
 /**
  * 
  * 
@@ -31,15 +31,15 @@ class Global extends React.Component {
     this.search = this.search.bind(this);
   }
 
-   /**
-    * 
-    * 
-    * @param {any} event 
-    * @return {void}
-    * @memberof Global
-    */
-   handleChange(event){
-      this.setState({ query: event.target.value })
+  /**
+   * 
+   * 
+   * @param {any} event 
+   * @return {void}
+   * @memberof Global
+   */
+  handleChange(event) {
+    this.setState({ query: event.target.value })
   }
 
   /**
@@ -48,7 +48,7 @@ class Global extends React.Component {
    * @return {void}
    * @memberof Global
    */
-  search(){
+  search() {
     this.props.search(this.state.query);
   }
 
@@ -58,41 +58,40 @@ class Global extends React.Component {
    * @returns {void}
    * @memberof Global
    */
-  render(){
+  render() {
     return (
-      <div className="Global"> 
-        <h2> Book explorer !</h2>
-        <FormGroup>
+      <div className="Global col-sm-4">
+        <FormGroup >
           <InputGroup>
-            <FormControl type="text" 
+            <FormControl type="text"
               placeholder="Search for a book"
               onChange={this.handleChange}
               onKeyPress={event => {
-                if(event.key === "Enter"){
+                if (event.key === "Enter") {
                   this.search();
                 }
               }}
             />
             <InputGroup.Addon onClick={() => this.search()}>
-              <Glyphicon glyph="search"/>
+              go
             </InputGroup.Addon>
           </InputGroup>
         </FormGroup>
-        { this.props.items?
-      
-        <Gallary items={this.props.items}/>
-        : '' 
+        {this.props.items ?
+
+          <Gallary items={this.props.items} />
+          : ''
         }
 
         {
           this.props.isLoading ?
-          <div id="progress">
-            <CircularProgressBar />
-          </div>
-          : ''
+            <div id="progress">
+              <CircularProgressBar />
+            </div>
+            : ''
         }
       </div>
-     )
+    )
   }
 }
 

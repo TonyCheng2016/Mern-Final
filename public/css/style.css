@@ -19,7 +19,13 @@ footer {
 }
 #bookdetail{
   margin-top: 20px;
-   padding: 15px
+   padding: 15px;
+     overflow: auto;
+  height: 700px;
+}
+#booklist{
+  overflow: auto;
+  height: 700px;
 }
 img {
     display:block;
@@ -32,6 +38,11 @@ img {
   color:white;
 }
 
+h4{
+  color:gold;
+  
+  padding: 5px
+}
 /*//==================================================================*/
 
 .book {
