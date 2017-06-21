@@ -1,0 +1,74 @@
+form a {
+  margin-left: 10px;
+}
+ul li {
+  cursor: pointer;
+}
+ul li:hover{
+  background: DarkOrange;
+}
+header {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+}
+footer {
+      background-color: #555;
+      color: white;
+      padding: 10px;
+}
+#bookdetail{
+  margin-top: 20px;
+   padding: 15px
+}
+img {
+    display:block;
+    margin:auto;
+}
+#headtext{
+  color:gold;
+}
+#foottext{
+  color:white;
+}
+
+/*//==================================================================*/
+
+.book {
+    display: inline-block;
+    width: 220px;
+    height: 220px;
+    margin: 10px;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+}
+
+.book-img {
+    width: 220px;
+    height: 220px;
+    border: 4px solid black;
+    border-radius: 4px;
+    object-fit: cover;
+    position: absolute;
+}
+
+.book-text {
+    background-color: black;
+    color: white;
+    opacity: 0.75;
+    width: 214px;
+    margin-left: 3px;
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    padding: 10px;
+
+}
+
+#progress{
+	top: 50%;
+  	left: 50%;
+  	position: absolute;
+  	transform: translate(-50%,-50%);
+}
